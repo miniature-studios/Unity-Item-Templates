@@ -2,13 +2,13 @@
 using System;
 using System.Runtime.InteropServices;
 using System.Threading;
-using Task = System.Threading.Tasks.Task;
+using System.Threading.Tasks;
 
-namespace Unity_Class_Template
+namespace UnityItemTemplates
 {
     [PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
-    [Guid(Unity_Class_TemplatePackage.PackageGuidString)]
-    public sealed class Unity_Class_TemplatePackage : AsyncPackage
+    [Guid(UnityItemTemplatesPackage.PackageGuidString)]
+    public sealed class UnityItemTemplatesPackage : AsyncPackage
     {
         public const string PackageGuidString = "0e3062a1-46cb-4312-855d-10c347f6f953";
 

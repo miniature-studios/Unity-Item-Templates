@@ -20,8 +20,8 @@
     <ProjectGuid>{133B7412-F9D3-4905-9D56-FF7922EBBED2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Unity_Class_Template</RootNamespace>
-    <AssemblyName>Unity Class Templates</AssemblyName>
+    <RootNamespace>UnityItemTemplates</RootNamespace>
+    <AssemblyName>Unity Item Templates</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <GeneratePkgDefFile>true</GeneratePkgDefFile>
     <UseCodebase>true</UseCodebase>
@@ -53,7 +53,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Unity_Class_TemplatePackage.cs" />
+    <Compile Include="UnityItemTemplatesPackage.cs" />
     <Compile Include="CorrectingTemplate.cs" />
   </ItemGroup>
   <ItemGroup>
