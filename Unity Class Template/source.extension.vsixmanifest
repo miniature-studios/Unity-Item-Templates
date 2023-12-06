@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="Unity_Item_Templates.1849efcb-aa39-4fa9-b987-c0930671bf14" Version="1.0.2" Language="en-US" Publisher="Nikolay Khimich" />
+        <Identity Id="Unity_Class_Template.1849efcb-aa39-4fa9-b987-c0930671bf14" Version="1.0.2" Language="en-US" Publisher="Nikolay Khimich" />
         <DisplayName>Unity Item Templates</DisplayName>
         <Description xml:space="preserve">Visual studio extension that adds item template for Unity Class with namespace, AddComponentMenu attribute and extends MonoBehaviour class.
 Also removes Assets.Scripts from namespace for better naming.</Description>
