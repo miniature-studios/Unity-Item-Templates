@@ -53,6 +53,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TemplateOptionsPage.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TemplatesOptions.cs" />
     <Compile Include="UnityItemTemplatesPackage.cs" />
     <Compile Include="CorrectingTemplate.cs" />
   </ItemGroup>

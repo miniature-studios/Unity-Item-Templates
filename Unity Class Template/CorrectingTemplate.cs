@@ -1,13 +1,13 @@
-﻿using EnvDTE;
-using EnvDTE80;
-using Microsoft.VisualStudio;
-using Microsoft.VisualStudio.Shell;
-using System;
+﻿using System;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
+using EnvDTE;
+using EnvDTE80;
+using Microsoft.VisualStudio;
+using Microsoft.VisualStudio.Shell;
 
 namespace UnityItemTemplates
 {
@@ -75,7 +75,11 @@ namespace UnityItemTemplates
                     }
 
                     // Replacements
-                    _ = textDocument.ReplaceText("Assets.Scripts.", string.Empty);
+                    foreach (string str in TemplatesOptions.Instance.NamespaceWordsToRemove)
+                    {
+                        _ = textDocument.ReplaceText(str + ".", string.Empty);
+                    }
+
                     _ = textDocument.ReplaceText(
                         "[AddComponentMenu(\"",
                         "[AddComponentMenu(\"Scripts/"
