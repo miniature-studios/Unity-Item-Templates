@@ -95,6 +95,10 @@ namespace UnityItemTemplates
                             splits[i] = splits[i].Replace(".", "/");
                         }
                         string modifiedLine = splits.Aggregate((x, y) => x + "/" + y);
+                        foreach (string ending in TemplatesOptions.Instance.ClassEndingsToRemove)
+                        {
+                            modifiedLine = modifiedLine.Replace(ending + "\")]", "\")]");
+                        }
                         _ = textDocument.ReplaceText(targetLine, modifiedLine);
                     }
 

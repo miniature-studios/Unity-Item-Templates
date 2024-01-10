@@ -23,10 +23,16 @@ namespace UnityItemTemplates
         [Description("Namespace Words To Remove")]
         public string[] NamespaceWordsToRemove { get; set; } = new string[] { "Assets", "Scripts" };
 
+        [Category("UnityItemTemplates - Options")]
+        [DisplayName("Class Endings To Remove")]
+        [Description("Class Endings To Remove")]
+        public string[] ClassEndingsToRemove { get; set; } = new string[] { "Impl" };
+
         protected void LoadFrom(TemplatesOptions newInstance)
         {
             DefaultNamespace = newInstance.DefaultNamespace;
             NamespaceWordsToRemove = newInstance.NamespaceWordsToRemove;
+            ClassEndingsToRemove = newInstance.ClassEndingsToRemove;
         }
 
         private static readonly AsyncLazy<TemplatesOptions> liveModel =
@@ -66,8 +72,11 @@ namespace UnityItemTemplates
                 GetSolutionOptionsFileNameAsync,
                 optionsDto =>
                 {
-                    newInstance.DefaultNamespace = optionsDto.DefaultNamespace;
-                    newInstance.NamespaceWordsToRemove = optionsDto.NamespaceWordsToRemove;
+                    newInstance.DefaultNamespace = optionsDto.DefaultNamespace ?? "NullNamespace";
+                    newInstance.NamespaceWordsToRemove =
+                        optionsDto.NamespaceWordsToRemove ?? new string[0];
+                    newInstance.ClassEndingsToRemove =
+                        optionsDto.ClassEndingsToRemove ?? new string[0];
                 }
             );
 
@@ -108,6 +117,7 @@ namespace UnityItemTemplates
                 {
                     DefaultNamespace = DefaultNamespace,
                     NamespaceWordsToRemove = NamespaceWordsToRemove,
+                    ClassEndingsToRemove = ClassEndingsToRemove,
                 }
             );
         }
@@ -142,6 +152,7 @@ namespace UnityItemTemplates
         {
             public string DefaultNamespace { get; set; }
             public string[] NamespaceWordsToRemove { get; set; }
+            public string[] ClassEndingsToRemove { get; set; }
         }
     }
 }
