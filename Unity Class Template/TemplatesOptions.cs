@@ -28,6 +28,11 @@ namespace UnityItemTemplates
         [Description("Class Endings To Remove")]
         public string[] ClassEndingsToRemove { get; set; } = new string[] { "Impl" };
 
+        [Category("UnityItemTemplates - Options")]
+        [DisplayName("Delete Class Name in Namespace Duplication")]
+        [Description("Delete Class Name in Namespace Duplication")]
+        public bool DeleteDuplication { get; set; } = true;
+
         protected void LoadFrom(TemplatesOptions newInstance)
         {
             DefaultNamespace = newInstance.DefaultNamespace;
@@ -77,6 +82,7 @@ namespace UnityItemTemplates
                         optionsDto.NamespaceWordsToRemove ?? new string[0];
                     newInstance.ClassEndingsToRemove =
                         optionsDto.ClassEndingsToRemove ?? new string[0];
+                    newInstance.DeleteDuplication = optionsDto.DeleteDuplication;
                 }
             );
 
@@ -118,6 +124,7 @@ namespace UnityItemTemplates
                     DefaultNamespace = DefaultNamespace,
                     NamespaceWordsToRemove = NamespaceWordsToRemove,
                     ClassEndingsToRemove = ClassEndingsToRemove,
+                    DeleteDuplication = DeleteDuplication,
                 }
             );
         }
@@ -153,6 +160,7 @@ namespace UnityItemTemplates
             public string DefaultNamespace { get; set; }
             public string[] NamespaceWordsToRemove { get; set; }
             public string[] ClassEndingsToRemove { get; set; }
+            public bool DeleteDuplication { get; set; }
         }
     }
 }

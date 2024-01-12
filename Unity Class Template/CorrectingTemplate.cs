@@ -99,6 +99,21 @@ namespace UnityItemTemplates
                         {
                             modifiedLine = modifiedLine.Replace(ending + "\")]", "\")]");
                         }
+
+                        if (TemplatesOptions.Instance.DeleteDuplication)
+                        {
+                            int firstIndex = modifiedLine.IndexOf(modifiedLine.Split('.').Last());
+                            int lastIndex = modifiedLine.IndexOf("\")]");
+                            string scriptName = modifiedLine.Substring(
+                                firstIndex,
+                                lastIndex - firstIndex
+                            );
+                            modifiedLine = modifiedLine.Replace(
+                                scriptName + "." + scriptName,
+                                scriptName
+                            );
+                        }
+
                         _ = textDocument.ReplaceText(targetLine, modifiedLine);
                     }
 
