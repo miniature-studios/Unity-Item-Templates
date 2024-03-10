@@ -109,7 +109,6 @@ namespace UnityItemTemplates
 
                         _ = textDocument.ReplaceText(targetLine, modifiedLine);
                     }
-                    _ = Document.Save();
                 }
             );
         }
