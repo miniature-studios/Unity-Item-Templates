@@ -58,21 +58,14 @@ namespace UnityItemTemplates
                     }
 
                     // Validation
-                    string[] toFind = new string[]
+                    string validationString = "//" + PackageGuidString;
+                    if (!textDocument.StartPoint.CreateEditPoint().FindPattern(validationString))
                     {
-                        "MonoBehaviour",
-                        "AddComponentMenu",
-                        "internal class",
-                        "Awake"
-                    };
-
-                    foreach (string str in toFind)
-                    {
-                        if (!textDocument.StartPoint.CreateEditPoint().FindPattern(str))
-                        {
-                            return;
-                        }
+                        return;
                     }
+
+                    // Remove Marker
+                    _ = textDocument.ReplaceText(validationString, string.Empty);
 
                     // Replacements
                     foreach (string str in TemplatesOptions.Instance.NamespaceWordsToRemove)
@@ -116,7 +109,6 @@ namespace UnityItemTemplates
 
                         _ = textDocument.ReplaceText(targetLine, modifiedLine);
                     }
-
                     _ = Document.Save();
                 }
             );
